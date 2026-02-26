@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes contacts</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ✅ EmailJS --> <!-- On doit ajouter ici une clé primaire prise sur le site EmailJS.com -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>emailjs.init("6Ki-NFXQVTcPW5aSI");</script> 
+</head>
+<body>
+    <!-- Navigation principale -->
+    <nav class="navbar">
+        <a href="#" class="logo">Portfolio.</a>
+        <ul>
+            <li class="#"><a href="porfolio.html">Accueil</a></li>
+            <li class="#"><a href="section_education.html">Formation</a></li>
+            <li class="#"><a href="projet.html">Projets</a></li>
+            <li class="#"><a href="Blog.html">Blog</a></li>
+            <li class="active"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact">
+        <h2>CONTACTEZ-MOI</h2>
+
+        <div class="contact-container">
+
+            <!-- FORMULAIRE -->
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="nom">Nom complet</label>
+                    <input type="text" id="nom" placeholder="Votre nom...">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" placeholder="Votre email...">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="6" placeholder="Votre message..."></textarea>
+                </div>
+
+                <!-- ✅ Bouton relié à la fonction -->
+                <button class="btn-envoyer" onclick="envoyerMessage()">Envoyer ✉</button>
+            </div>
+
+            <!-- RÉSEAUX SOCIAUX -->
+            <div class="contact-reseaux">
+                <p>Retrouvez-moi sur</p>
+                <div class="reseaux-icons">
+
+                    <a href="https://www.linkedin.com/in/cyrille-modeste-nemlin-635395228/" target="_blank" class="reseau-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="https://github.com/CyrilleNCM" target="_blank" class="reseau-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://wa.me/2250757079475" target="_blank" class="reseau-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+                        <span>WhatsApp</span>
+                    </a>
+
+                    <!-- ✅ Ton vrai email -->
+                    <a href="mailto:nemlincyrille15@gmail.com" class="reseau-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+                        <span>Email</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ✅ Script EmailJS -->
+    <script>
+    function envoyerMessage() {
+
+        const nom = document.getElementById("nom").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Vérification champs vides
+        if (!nom || !email || !message) {
+            alert("⚠️ Veuillez remplir tous les champs !");
+            return;
+        }
+
+        // Bouton en chargement
+        const btn = document.querySelector(".btn-envoyer");
+        btn.innerText = "Envoi en cours...";
+        btn.disabled = true;
+
+        const params = {
+            from_name: nom,
+            from_email: email,
+            message: message
+        };
+
+        emailjs.send("service_4x7r2hp", "template_kuw5lio", params)
+        .then(() => {
+            alert("✅ Message envoyé avec succès !");
+            document.getElementById("nom").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+            btn.innerText = "Envoyer ✉";
+            btn.disabled = false;
+        })
+        .catch((error) => {
+            alert("❌ Erreur lors de l'envoi, réessaie.");
+            console.error(error);
+            btn.innerText = "Envoyer ✉";
+            btn.disabled = false;
+        });
+    }
+    </script>
+
+</body>
+</html>

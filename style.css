@@ -1,0 +1,631 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reset global et police */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, hsl(210, 20%, 96%) 0%, #5db2f8 100%);
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* -------------------------------
+    Navbar (barre de navigation fixe en haut)
+    - position: fixed pour rester visible
+    - animation show-content : apparence progressive
+    ------------------------------- */
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5%;
+    background-color: #0e39f8;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 0.5s linear forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* Logo dans la navbar */
+.navbar .logo {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 700;
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+.navbar a {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.navbar ul li:hover a,
+.navbar .active a {
+    color: #10ce9f;
+} 
+
+
+/* -------------------------------
+    Section "home" : conteneur principal
+    - Contient .home-info (texte) et .home-img (visuel)
+    ------------------------------- */
+.home {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #ffffff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+.home-info h1 {
+    font-size: 50px;
+}
+.home-info h2 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+.home-info h3 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+.home-info h3 span {
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px #c2f617;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s *var(--i));
+}
+
+@keyframes display-text {
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+.home-info h3 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #c2f617;
+    color: #c2f617;
+     white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+    10%,
+    100% {
+        width: 0;
+    }
+    70%,
+    90% {
+        width: 20%;
+    }
+}
+
+.home-info p {
+    font-size: 20px;
+    margin: 15px 0 25px 0;
+    color: #bbbbbb;
+}
+
+/* Bouton principal et icônes sociales */
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #c2f617;
+    border: 2px solid #c2f617;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 40px;
+    box-shadow:0 0 10px rgba(194, 246, 23, 0.4);
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: none;
+    color: #c2f617;
+    box-shadow: none;
+}
+.home-info .btn-sci .sci {
+        margin-left: 20px;
+}
+
+.home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid #c2f617;
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 0 8px;
+    color: #c2f617;
+    transition: all 0.5s ease;
+}
+.home-info .btn-sci .sci a:hover {
+    background: #c2f617;
+    color: #09559c;
+    box-shadow:0 0 10px rgba(194, 246, 23, 0.4);
+}
+
+
+.home-img .img-box  {
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    overflow: hidden;   
+}
+
+/* Anneaux décoratifs autour de l'image (conic-gradient animé) */
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;       
+    height: 500px;
+    background: conic-gradient(transparent,transparent,transparent,#c2f617);
+    transform: rotate(0deg);
+    animation: rotate-border 12s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #17f6ef;
+    background: #010b35;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+.home-img .img-box .img-item img {
+    position: absolute;
+    top: 30%;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+    width: 100%;
+    height: 100%;
+    object-position: center 10%;
+    border-radius: 50%;
+    inset: 0;
+
+}
+
+/* -------------------------------
+    Bars animation : élément purement décoratif
+    - Chaque .bar utilise une variable CSS --i pour décaler le délai
+    - z-index: -1 pour rester sous le contenu
+    ------------------------------- */
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    z-index: -1;
+}
+
+/* Les barres sont positionnées et animées individuellement.
+   La propriété custom --i (définie en ligne dans le HTML) contrôle
+   l'animation-delay pour créer un effet en cascade. */
+.bars-animation .bar {
+    width: 1000px;
+    height: 1000%;
+    background: #014d80;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0);
+    }
+}
+/* ===== SECTION ÉDUCATION & CERTIFICATIONS ===== */
+
+#education {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #0e39f8 0%, #010b35 100%);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== TITRES DE SECTION ===== */
+
+#education h2 {
+    color: #c2f617;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #c2f617;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== CHAQUE DIPLÔME ===== */
+
+.education-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #c2f617;
+}
+
+.education-item h3 {
+    color: #c2f617;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.education-item .institution {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.education-item .period {
+    color: #bbbbbb;
+    font-style: italic;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* ===== CERTIFICATIONS ===== */
+
+.certification-item {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background: rgba(194, 246, 23, 0.2);
+    border-radius: 15px;
+    border: 1px solid #c2f617;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.certification-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: white;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+
+@media (max-width: 768px) {
+    #education {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .certification-item {
+        display: block;
+        margin-right: 0;
+    }
+}
+
+/* ===== SECTION PROJETS ===== */
+
+#projets {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+#projets h2 {
+    color: #c2f617;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #c2f617;
+}
+
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.projet-card {
+    background: linear-gradient(135deg, #0e39f8 0%, #010b35 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.projet-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE + OVERLAY DATE */
+
+.projet-image {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projet-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 10px;
+}
+
+.projet-date {
+    color: #c2f617;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/* TEXTE DESCRIPTIF */
+
+.projet-info {
+    padding: 15px;
+}
+
+.projet-titre {
+    color: #c2f617;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+}
+
+.projet-entreprise {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.projet-description {
+    padding-left: 0;
+    list-style: none;
+    font-size: 0.85em;
+    color: #dddddd;
+}
+
+.projet-description li {
+    padding-left: 15px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.projet-description li::before {
+    content: "▸";
+    color: #c2f617;
+    position: absolute;
+    left: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .projets-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== SECTION CONTACT ===== */
+
+#contact {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #0e39f8 0%, #010b35 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+#contact h2 {
+    color: #c2f617;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #c2f617;
+}
+
+/* ===== FORMULAIRE ===== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #c2f617;
+    font-size: 0.95em;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #c2f617;
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: white;
+    font-size: 0.95em;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ===== BOUTON ENVOYER ===== */
+
+.btn-envoyer {
+    width: 100%;
+    padding: 14px;
+    background: #c2f617;
+    color: #010b35;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.btn-envoyer:hover {
+    background: transparent;
+    color: #c2f617;
+    border: 2px solid #c2f617;
+}
+
+/* ===== RÉSEAUX SOCIAUX ===== */
+
+.contact-reseaux {
+    margin-top: 35px;
+    text-align: center;
+    border-top: 1px solid rgba(194, 246, 23, 0.3);
+    padding-top: 25px;
+}
+
+.contact-reseaux p {
+    color: #c2f617;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.reseaux-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.reseau-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.reseau-item:hover {
+    transform: translateY(-5px);
+    color: #c2f617;
+}
+
+.reseau-item img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.reseau-item:hover img {
+    filter: brightness(1) saturate(1);
+}
+
+.reseau-item span {
+    font-size: 0.8em;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    #contact {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .reseaux-icons {
+        gap: 20px;
+    }
+}

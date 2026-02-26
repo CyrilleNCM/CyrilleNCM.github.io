@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- Déclaration du type de document HTML5 -->
+<html lang="fr">    
+<head>
+    <!-- Encodage UTF-8 pour supporter tous les caractères -->
+    <meta charset="UTF-8">
+    <!-- Configuration responsive pour mobiles et tablettes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre du navigateur -->
+    <title>MON PORTFOLIO</title>
+    <!-- Fichier CSS personnalisé pour les styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Bibliothèque d'icônes Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ 
+</head>
+<body>
+
+<!-- ===== BARRE DE NAVIGATION PRINCIPALE ===== -->
+<!-- Menu de navigation avec logo et liens vers les différentes pages -->
+<nav class="navbar">
+    <!-- Logo du portfolio -->
+    <a href="#" class="logo">Portfolio.</a>
+    <!-- Liste des liens de navigation -->
+    <ul>
+        <li class="active"><a href="porfolio.html">Accueil</a></li>
+        <li class="#"><a href="section_education.html">Formation</a></li>
+        <li class="#"><a href="projet.html">Projets</a></li>
+        <li class="#"><a href="Blog.html">Blog</a></li>
+        <li class="#"><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ===== ANIMATION DÉCORATIVE ===== -->
+<!-- Barres d'animation en arrière-plan (éléments purement visuels, pas de contenu sémantique) -->
+<!-- Chaque barre a une propriété CSS --i pour contrôler l'animation -->
+<div class="bars-animation">
+        <!-- Barre 6 : animation la plus lente -->
+        <div class="bar" style="--i:6"></div>
+        <!-- Barre 5 -->
+        <div class="bar" style="--i:5"></div>
+        <!-- Barre 4 -->
+        <div class="bar" style="--i:4"></div>
+        <!-- Barre 3 -->
+        <div class="bar" style="--i:3"></div>
+        <!-- Barre 2 -->
+        <div class="bar" style="--i:2"></div>
+        <!-- Barre 1 : animation la plus rapide -->
+        <div class="bar" style="--i:1"></div>
+</div>
+
+<!-- ===== SECTION D'ACCUEIL ===== -->
+<!-- Section principale contenant les informations personnelles et professionnelles -->
+<section class="home">
+    <!-- Contenu texte et boutons côté gauche -->
+    <div class="home-info">
+            <!-- Titre de bienvenue -->
+            <h1><strong>Bienvenue sur mon Portfolio</strong></h1>
+
+            <!-- Nom complet de l'auteur -->
+            <h2>Je suis <strong>NEMLIN Gnaoué Cyrille Modeste</strong></h2>
+
+            <!-- Rôles professionnels avec animation de texte -->
+            <h3>
+               <!-- Chaque span a un délai d'animation (--i) et du contenu de données pour l'effet -->
+               <span style="--i:4;"data-text="Analyst Géomaticien">Analyst Géomaticien</span>
+               <span style="--i:3" data-text="Social Manager">Social Manager</span>
+               <span style="--i:2" data-text="Infographiste">Infographiste</span>
+               <span style="--i:1" data-text="Développeur Web">Développeur Web</span>
+            </h3>
+
+            <!-- Biographie courte -->
+            <p>Passionné par la technologie, le design et la communication, je mêle la géomatique, le graphisme et le web pour créer des expériences visuelles et digitales impactantes.
+            Entre cartes intelligentes, interfaces web et stratégies sociales, j'aime donner vie à des projets qui allient esthétique et innovation.</p>
+            
+            <!-- ===== BOUTON DE TÉLÉCHARGEMENT CV ET RÉSEAUX SOCIAUX ===== -->
+            <div class="btn-sci">
+                <!-- Bouton permettant de télécharger le fichier CV -->
+                <a href="MON CV .docx" class="btn">Télécharger CV</a>
+                
+                <!-- Conteneur des liens vers les réseaux sociaux -->
+                <div class="sci">
+                    <!-- Icônes de réseaux sociaux depuis la bibliothèque Boxicons (CDN) -->
+                    <!-- Lien Facebook -->
+                 <a href="https://www.facebook.com/modeste.nemlin.1/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                 <i class='bx bxl-facebook-circle'></i>
+                 </a>
+
+                    <!-- Lien WhatsApp -->
+                    <a href="https://wa.me/2250757079475" target="_blank" rel="noopener noopener" aria-label="WhatsApp">
+                        <i class='bx bxl-whatsapp' ></i> </a>
+
+                    <!-- Lien LinkedIn -->
+                    <a href="https://www.linkedin.com/in/cyrille-modeste-nemlin-635395228/" target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+
+                    <!-- Lien GitHub -->
+                    <a href="https://github.com/CyrilleNCM" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">   
+                        <i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+    </div>
+      
+<!-- ===== SECTION IMAGE (CÔTÉ DROIT) ===== -->
+<!-- Conteneur de l'image de profil avec effet animé -->
+<div class="home-img">
+    <!-- Boîte contenant l'image avec effet visuel -->
+    <div class="img-box">
+        <!-- Élément de l'image -->
+        <div class="img-item">
+            <!-- Image de profil (assurer que le fichier images/img.png existe et le chemin est correct) -->
+            <img src="images/img.png" alt="Ma photo">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Fermeture de la section body -->
+</body>
+<!-- Fermeture du document HTML -->
+</html>
