@@ -29,6 +29,12 @@
         <li class="#"><a href="Blog.html">Blog</a></li>
         <li class="#"><a href="contact.html">Contact</a></li>
     </ul>
+    <!-- Bouton menu burger -->
+    <div class="burger" aria-label="Ouvrir le menu" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
 <!-- ===== ANIMATION DÉCORATIVE ===== -->
@@ -120,6 +126,23 @@
 </div>
 
 <!-- Fermeture de la section body -->
+</body>
+<!-- Script menu burger responsive -->
+<script>
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.navbar ul');
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('open');
+    });
+    // Accessibilité clavier (Entrée ou Espace)
+    burger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('open');
+        }
+    });
+</script>
 </body>
 <!-- Fermeture du document HTML -->
 </html>

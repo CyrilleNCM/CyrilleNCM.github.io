@@ -67,6 +67,25 @@ a {
     font-weight: 500;
 }
 
+/* ===== MENU BURGER ===== */
+.navbar .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 200;
+}
+.navbar .burger span {
+    height: 4px;
+    width: 100%;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
 .navbar ul li:hover a,
 .navbar .active a {
     color: #10ce9f;
@@ -365,7 +384,39 @@ a {
         display: block;
         margin-right: 0;
     }
+    /* NAVBAR responsive */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px 3%;
+    }
+    .navbar .logo {
+        font-size: 35px;
+        margin-bottom: 8px;
+    }
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        background: #0e39f8;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        display: none;
+        padding: 0;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .navbar ul.active {
+        display: flex;
+    }
+    .navbar ul li {
+        margin: 18px 0 18px 0;
+        text-align: center;
+    }
+    .navbar .burger {
+        display: flex;
+    }
 }
+
 
 /* ===== SECTION PROJETS ===== */
 
