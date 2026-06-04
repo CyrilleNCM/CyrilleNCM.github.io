@@ -167,13 +167,13 @@ Vous souhaitez collaborer sur un projet ou échanger sur la géomatique, le desi
 
 N'hésitez pas à me contacter.
 
-📧 Email : [votre-email@example.com](mailto:votre-email@example.com)
+📧 Email: nemlincyrille15@gmail.com
 
-🌐 Portfolio : votre-site-web.com
+🌐 Portfolio: https://cyrillencm.github.io/
 
-💼 LinkedIn : votre-profil-linkedin
+💼 LinkedIn: NEMLIN Gnaoue Cyrille Modeste
 
-🐙 GitHub : votre-compte-github
+🐙 GitHub: https://github.com/CyrilleNCM
 
 ---
 
